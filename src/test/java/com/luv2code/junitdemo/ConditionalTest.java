@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledForJreRange;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
+import org.junit.jupiter.api.condition.EnabledIfSystemProperty;
 import org.junit.jupiter.api.condition.EnabledOnJre;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.JRE;
@@ -80,6 +82,22 @@ class ConditionalTest {
 	@DisplayName("Conditional JRE minimal Java 11")
 	@EnabledForJreRange(min=JRE.JAVA_11)
 	void testForJavaRangeMin()
+	{
+		
+	}
+	
+	@Test
+	@DisplayName("Conditional if Enviromental Variable is set, in Enviroment tab at Run Configurations")
+	@EnabledIfEnvironmentVariable(named="LUV2CODE_ENV", matches="DEV")
+	void testOnlyForDevEnviroment()
+	{
+		
+	}
+	
+	@Test
+	@DisplayName("Conditional if System Property is set as an argument like -ea -DLUV2CODE_SYS_PROP=CI_CD_DEPLOY")
+	@EnabledIfSystemProperty(named="LUV2CODE_SYS_PROP", matches="CI_CD_DEPLOY")
+	void testOnlyForSystemProperty()
 	{
 		
 	}
