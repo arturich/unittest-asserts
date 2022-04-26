@@ -23,10 +23,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 
 //@DisplayNameGeneration(DisplayNameGenerator.IndicativeSentences.class)
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DemoUtilsTest {
 	
 	DemoUtils demoUtils;
@@ -52,6 +56,7 @@ class DemoUtilsTest {
 
 	@Test
 	@DisplayName("Equals and Not Equals")
+	@Order(1)
 	void testEqualsAndNotEquals() {
 		
 		System.out.println("Running test: testEqualsAndNotEquals" );
@@ -69,6 +74,7 @@ class DemoUtilsTest {
 	
 	@Test
 	@DisplayName("Test Null And not Null")
+	@Order(3)
 	void testNullAndNotNull()
 	{
 		System.out.println("Running test: testNullAndNotNull" );		
