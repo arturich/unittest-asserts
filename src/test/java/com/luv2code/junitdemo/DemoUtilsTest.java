@@ -152,6 +152,13 @@ class DemoUtilsTest {
 		assertTimeoutPreemptively(Duration.ofSeconds(3), () -> { demoUtils.checkTimeout();},"Method should execute in max 3 seconds.");
 	}
 	
+	@Test
+	@DisplayName("Multiplication validation")
+	void testMultiply()	
+	{
+		assertEquals(9, demoUtils.multiply(3, 3), " 3 * 3 should be 9");
+	}
+	
 	@AfterAll
 	static void setupAfterEachClass()
 	{
